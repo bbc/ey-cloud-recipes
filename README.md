@@ -1,3 +1,17 @@
+## VIVO Cloud Recipes
+
+This is a customised fork of EY's default cloud recipes provided at: [https://github.com/engineyard/ey-cloud-recipes] 
+
+Main changes (this list is NOT comprehensive):
+    1.We are using the mongodb cookbook (`cookbooks/mongodb/recipes/install.rb`)
+    2.We are killing the nginx server (`cookbooks/main/recipes/default.rb`)
+
+This project needs to be synched with the original repo every month. Please update the below line when yo udo so:
+
+## Last Updated: 16 Sep 2015
+
+----------------
+
 # EY Cloud Recipes
 
 [![Build Status](https://secure.travis-ci.org/engineyard/ey-cloud-recipes.png)](http://travis-ci.org/engineyard/ey-cloud-recipes)

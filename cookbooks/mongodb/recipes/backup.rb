@@ -7,7 +7,12 @@ ey_cloud_report "mongodb" do
   message "configuring backup"
 end
 
-mongo_nodes = @node[:utility_instances].select { |instance| instance[:name].match(/^mongodb_repl#{@node[:mongo_replset]}/) }
+if (node[:instance_role] == "solo" && node[:utility_instances].length == 0) || (node[:instance_role] == "app_master" && node[:mongo_utility_instances].length == 0 && node[:engineyard][:environment][:db_stack_name] == "no_db")
+  mongo_nodes = node[:engineyard][:environment][:instances]
+else
+  mongo_nodes = node[:utility_instances].select { |instance| instance[:name].match(/^mongodb_repl#{node[:mongo_replset]}/) }
+end
+
 if @node[:name] == mongo_nodes.last[:name]
 
   node[:applications].each do |app_name, data|

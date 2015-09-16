@@ -1,3 +1,12 @@
+include_recipe "mongodb"
+
+if app_server?
+  bash "stop-nginx" do
+    code "/etc/init.d/nginx stop"
+    only_if "ps -efa | grep nginx | grep -v grep"
+  end
+end
+
 #execute "testing" do
 #  command %Q{
 #    echo "i ran at #{Time.now}" >> /root/cheftime

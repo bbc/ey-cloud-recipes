@@ -40,7 +40,7 @@ else
 end
 
 #install mms on db_master or solo. This will need to change for db-less environments
-if ['db_master', 'solo'].include? @node[:instance_role]
+if ['db_master', 'solo'].include? @node[:instance_role] || (@node[:instance_role] == "app_master" && @node[:mongo_utility_instances].length == 0 && @node[:engineyard][:environment][:db_stack_name] == "no_db")
   Chef::Log.info "Installing MMS on #{@node[:instance_role]}"
   include_recipe "mongodb::install_mms"
 end

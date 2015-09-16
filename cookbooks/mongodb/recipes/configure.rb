@@ -1,14 +1,14 @@
-user = @node[:users].first
-mongodb_bin = "#{@node[:mongo_path]}/bin"
+user = node[:users].first
+mongodb_bin = "#{node[:mongo_path]}/bin"
 
-if ['db_master','solo'].include? @node[:instance_role]
+if node[:instance_role] == "db_master" || (node[:instance_role] == "solo" && node[:mongo_utility_instances].length > 0)
   #under /mnt because it's an arbiter. No data saved
   mongo_data = "/mnt/mongodb/data"
   mongo_log = "/mnt/mongodb/log"
 else
   #save under /data
-  mongo_data = @node[:mongo_base] + "/data"
-  mongo_log = @node[:mongo_base] + "/log"
+  mongo_data = node[:mongo_base] + "/data"
+  mongo_log = node[:mongo_base] + "/log"
 end
 
 directory mongo_data do
@@ -88,13 +88,13 @@ template "/etc/conf.d/mongodb" do
   })
 end
 
-execute "enable-mongodb" do
+execute "enable mongodb" do
   command "rc-update add mongodb default"
   action :run
 end
 
-execute "/etc/init.d/mongodb restart" do
+execute "start mongodb" do
   command "/etc/init.d/mongodb restart"
   action :run
+  not_if "/etc/init.d/mongodb status"
 end
-
