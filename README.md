@@ -1,6 +1,7 @@
 ## VIVO Cloud Recipes
 
 This is a customised fork of EY's default cloud recipes provided at: [https://github.com/engineyard/ey-cloud-recipes] 
+Documentation: [https://confluence.dev.bbc.co.uk/display/cps/Engine+Yard+Notes]
 
 Main changes (this list is NOT comprehensive):
     1.We are using the mongodb cookbook (`cookbooks/mongodb/recipes/install.rb`)
@@ -11,9 +12,8 @@ This project needs to be synched with the original repo every month like so:
     git remote add upstream https://github.com/engineyard/ey-cloud-recipes
     git pull upstream master
     git push origin master
- 
-Please update the below line when you update the project.
 
+Please update the below line when you update the project.
 ## Last Updated: 16 Sep 2015
 
 ----------------
