@@ -6,7 +6,13 @@ Main changes (this list is NOT comprehensive):
     1.We are using the mongodb cookbook (`cookbooks/mongodb/recipes/install.rb`)
     2.We are killing the nginx server (`cookbooks/main/recipes/default.rb`)
 
-This project needs to be synched with the original repo every month. Please update the below line when yo udo so:
+This project needs to be synched with the original repo every month like so:
+    
+    git remote add upstream https://github.com/engineyard/ey-cloud-recipes
+    git pull upstream master
+    git push origin master
+ 
+Please update the below line when yo udo so:
 
     git remote add upstream https://github.com/engineyard/ey-cloud-recipes
     git pull upstream master
