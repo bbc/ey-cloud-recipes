@@ -8,6 +8,10 @@ Main changes (this list is NOT comprehensive):
 
 This project needs to be synched with the original repo every month. Please update the below line when yo udo so:
 
+    git remote add upstream https://github.com/engineyard/ey-cloud-recipes
+    git pull upstream master
+    git push origin
+
 ## Last Updated: 16 Sep 2015
 
 ----------------
