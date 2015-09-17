@@ -12,11 +12,7 @@ This project needs to be synched with the original repo every month like so:
     git pull upstream master
     git push origin master
  
-Please update the below line when yo udo so:
-
-    git remote add upstream https://github.com/engineyard/ey-cloud-recipes
-    git pull upstream master
-    git push origin
+Please update the below line when you update the project.
 
 ## Last Updated: 16 Sep 2015
 
