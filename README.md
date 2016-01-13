@@ -13,8 +13,17 @@ This project needs to be synched with the original repo every month like so:
     git pull upstream master
     git push origin master
 
+To apply any changes
+
+    ey recipes upload -e environment_name
+    ey recipes apply -e environment_name
+
+To install the above ey tool if you don't have it:
+
+    sudo gem install engineyard
+
 Please update the below line when you update the project.
-## Last Updated: 30 Nov 2015
+## Last Updated: 13 Jan 2016
 
 ----------------
 
